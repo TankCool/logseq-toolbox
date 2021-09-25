@@ -1,0 +1,11 @@
+{
+  "name": "logseq-toolbox",
+  "version": "0.0.1",
+  "author": "tankcool",
+  "main": "index.html",
+  "description": "Some useful tiny tools for logseq.", 
+  "logseq": {
+    "icon": "./icon.png",
+    "id": "logseq-toolbox"
+  }
+}
