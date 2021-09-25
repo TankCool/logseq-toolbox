@@ -4,7 +4,8 @@ Some useful tiny tools for logseq.
 
 ### Demo
 
-![demo](./toolbox-demo.gif)
+![toolbox-demo](https://github.com/TankCool/logseq-toolbox/blob/main/toolbox-demo.gif)
+
 ### Usage
 
 - `git clone https://github.com/TankCool/logseq-toolbox.git`
