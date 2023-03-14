@@ -4,7 +4,7 @@ Some useful tiny tools for logseq.
 
 ### Demo
 
-![toolbox-demo](https://github.com/TankCool/logseq-toolbox/blob/main/toolbox-demo.gif)
+![toolbox-demo](https://raw.githubusercontent.com/TankCool/logseq-toolbox/main/toolbox-demo.gif)
 
 ### Usage
 
