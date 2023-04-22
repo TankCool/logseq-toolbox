@@ -1,6 +1,6 @@
 {
   "name": "logseq-toolbox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "tankcool",
   "main": "index.html",
   "description": "Some useful tiny tools for logseq.", 

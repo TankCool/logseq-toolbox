@@ -1,10 +1,12 @@
-function insertDailyQuote(currentBlock) {
-  axios.get("https://quotes.rest/qod?language=en").then((res) => {
-    const {contents:{quotes}} = res.data
+function insertRandomQuote(currentBlock) {
+  axios.get("https://api.quotable.io/quotes/random").then((res) => {
+    console.log(res);
+    const quotes = res.data
+    console.log(quotes)
     if (quotes.length > 0) {
       const content = `
 #+BEGIN_TIP
-${quotes[0].quote}  *${quotes[0].author}*
+${quotes[0].content}  [[${quotes[0].author}]]
 #+END_TIP
 `;
       insertContent(currentBlock, content);
@@ -12,11 +14,6 @@ ${quotes[0].quote}  *${quotes[0].author}*
       logseq.App.showMsg("network error");
     }
   });
-}
-
-function insertProgressBar(currentBlock) {
-  const content = '<progress value="42" max="100" />';
-  insertContent(currentBlock, content);
 }
 
 async function insertContent(currentBlock, content) {
@@ -29,7 +26,7 @@ async function insertContent(currentBlock, content) {
 }
 
 function insertRandomPic(currentBlock) {
-  const randomURL = "https://source.unsplash.com/random/1080x720";
+  const randomURL = "https://source.unsplash.com/featured/1080x720";
   axios.get(randomURL).then((data) => {
     const contentToInsert = `![unsplash-random-pic-${new Date().toString()}](${data.request.responseURL})`;
     insertContent(currentBlock, contentToInsert);
@@ -38,15 +35,14 @@ function insertRandomPic(currentBlock) {
 
 function main() {
 
-  logseq.Editor.registerSlashCommand("toolbox-daily-quote", async () => {
+  logseq.Editor.registerSlashCommand("toolbox-random-quote", async () => {
     const currentBlock = await logseq.Editor.getCurrentBlock();
-    insertDailyQuote(currentBlock);
+    insertRandomQuote(currentBlock);
   });
 
-  logseq.Editor.registerSlashCommand("toolbox-progress-bar", async () => {
-    const currentBlock = await logseq.Editor.getCurrentBlock();
-    insertProgressBar(currentBlock);
-  });
+  logseq.Editor.registerSlashCommand("toolbox-progress-bar", [
+    ["editor/input", '<progress value="42" max="100"/>', {"backward-pos": 13}],
+  ])
 
   logseq.Editor.registerSlashCommand("toolbox-random-picture", async () => {
     const currentBlock = await logseq.Editor.getCurrentBlock();

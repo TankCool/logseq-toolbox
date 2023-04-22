@@ -15,5 +15,5 @@ Some useful tiny tools for logseq.
 
 ### Notes
 
-- `toolbox-daily-quote` source  is from [quotes.rest ](https://quotes.rest/) 
+- `toolbox-random-quote` source  is from [api.quotable.io](https://api.quotable.io/quotes/random)
 - `toolbox-random-picture` source is from [Unsplash Source ](https://source.unsplash.com/) 
